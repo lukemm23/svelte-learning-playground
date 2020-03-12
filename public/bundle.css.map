@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "../App.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\n  let name = \"luke\";\n  let age = 36;\n\n  $: uppercaseName = name.toUpperCase();\n\n  $: console.log(name);\n\n  $: if (name === \"Lucas\") {\n    console.log(\"it runs\");\n    age = 31;\n  }\n\n  function incrementAge() {\n    age += 1;\n  }\n\n  function changeName() {\n    name = \"Lucas\";\n  }\n\n  function nameInput(event) {\n    const enteredValue = event.target.value;\n    name = enteredValue;\n  }\n</script>\n\n<style>\n  h1 {\n    color: black;\n  }\n</style>\n\n<!-- you could input simple javascript methods inside and between curly brackets -->\n<h1>Hello {uppercaseName}! My age is {age}!</h1>\n<button on:click={incrementAge}>Change Age</button>\n<button on:click={changeName}>Change Name</button>\n\n<!-- 2 directional data flow for input -->\n<!-- solution 1 (long way) -->\n<!-- <input\n  type=\"text\"\n  placeholder=\"Enter Your Name\"\n  value={name}\n  on:input={nameInput} /> -->\n\n<!-- solution 2 (shortcut) -->\n<!-- not good to abuse this, but for inputs they are good -->\n<input type=\"text\" bind:value={name} />\n"
+  ],
+  "names": [],
+  "mappings": "AA4BE,EAAE,cAAC,CAAC,AACF,KAAK,CAAE,KAAK,AACd,CAAC"
+}
