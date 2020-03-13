@@ -1,5 +1,10 @@
 <script>
+  import ContactCard from "./ContactCard.svelte";
+
   let name = "luke";
+  let title = "";
+  let description = "";
+  let image = "";
   let age = 36;
 
   $: uppercaseName = name.toUpperCase();
@@ -46,4 +51,11 @@
 
 <!-- solution 2 (shortcut) -->
 <!-- not good to abuse this, but for inputs they are good -->
-<input type="text" bind:value={name} />
+<input type="text" bind:value={name} placeholder="Enter Name" />
+<input type="text" bind:value={title} placeholder="Enter Job Title" />
+<input type="text" bind:value={image} />
+<textarea
+  type="text"
+  bind:value={description}
+  placeholder="Enter a short description" />
+<ContactCard userName={name} jobTitle={title} {description} userImage={image} />
